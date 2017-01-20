@@ -17,6 +17,7 @@ public class EX16 {
         long startTime, endTime, executionTime;
 
         System.out.println("Negative numbers = key doesn't exist");
+
         //Linear Search
         startTime = System.currentTimeMillis();
         i = linearSearch(nums, key);
