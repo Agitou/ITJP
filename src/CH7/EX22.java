@@ -17,6 +17,7 @@ public class EX22 {
             int pos = random(0, board.length - 1);
 
             if(checkPosition(board, pos)) {
+                System.out.print("Pos" + pos + " ");
                 board[pos] = true;
                 qcount++;
             }
@@ -41,7 +42,7 @@ public class EX22 {
     public static boolean checkPosition(boolean[] board, int pos){
 
         return possibleColumn(board, pos) && possibleRow(board, pos)
-                && minDiagonal(board, pos); //&& majDiagonal(board, pos);
+               && minDiagonal(board, pos); //&& majDiagonal(board, pos);
     }
 
     public static boolean possibleRow(boolean[] board, int pos){
@@ -81,14 +82,14 @@ public class EX22 {
         int colEndValue = 0;
         int posCopy = pos;
 
-        while(posCopy >= 0 || (posCopy + 1) % 8 != 0){
+        while(posCopy >= 0 ){
             colInitValue = posCopy;
             posCopy -= 8;
         }
 
         posCopy = pos;
 
-        while(posCopy < board.length || posCopy % 8 != 0){
+        while(posCopy < board.length ){
             colEndValue = posCopy;
             posCopy += 8;
         }
@@ -108,13 +109,19 @@ public class EX22 {
         int DiaEndValue = 0;
         int posCopy = pos;
 
-        while(posCopy >= 0){
+        while(posCopy >= 0 && ((posCopy + 1) % 8 != 0)){
             DiaInitValue = posCopy;
             posCopy -= 7;
         }
 
         posCopy = pos;
 
+        while(posCopy < board.length && (posCopy % 8 != 0)){
+            DiaEndValue = posCopy;
+            posCopy += 7;
+        }
+
+        //System.out.print("In" + DiaInitValue + "En" +DiaEndValue + "Po" + pos + " ");
 
         for(int i = DiaInitValue; i <= DiaEndValue; i += 7){
             if(board[i])
