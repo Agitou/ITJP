@@ -5,7 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * Created by Agitou on 1/21/17.
  */
-public class EX22 {
+public class EX22_STILL_NOT_SOVLED {
 
     public static void main(String[] args){
 
